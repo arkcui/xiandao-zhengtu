@@ -16,6 +16,6 @@ npm test
 npm run build
 ```
 
-## 发布
+## 发布到 GitHub Pages
 
-项目已配置 GitHub Actions。推送到 `main` 后，会自动构建并发布到 GitHub Pages。
+源码推送到 `main`，构建产物发布到 `gh-pages` 分支。
