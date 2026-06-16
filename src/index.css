@@ -1,0 +1,410 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  font-family: "Noto Sans SC", system-ui, sans-serif;
+  color: #e8d5b7;
+  background: #120a1d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(255, 107, 53, 0.18), transparent 28%),
+    radial-gradient(circle at 78% 8%, rgba(93, 173, 226, 0.14), transparent 30%),
+    linear-gradient(150deg, #190a25 0%, #221037 50%, #0f1622 100%);
+}
+
+button {
+  min-height: 42px;
+  border: 1px solid rgba(212, 165, 116, 0.72);
+  border-radius: 8px;
+  padding: 10px 16px;
+  font: inherit;
+  font-weight: 800;
+  color: #211508;
+  background: linear-gradient(135deg, #f5c46e, #d4a574);
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.48;
+}
+
+button.secondary {
+  color: #e8d5b7;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+h1,
+h2,
+h3,
+.title-copy strong {
+  margin: 0;
+  font-family: "Ma Shan Zheng", "Noto Sans SC", cursive;
+  letter-spacing: 0;
+}
+
+.ink-bg {
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(18, 10, 29, 0.34), rgba(18, 10, 29, 0.82)),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='800' viewBox='0 0 1200 800'%3E%3Cpath d='M0 590 C190 470 280 560 420 438 C585 294 760 400 960 230 C1070 138 1138 146 1200 118 L1200 800 L0 800 Z' fill='%2325133a'/%3E%3Cpath d='M0 640 C280 570 350 620 520 500 C700 374 860 492 1200 310 L1200 800 L0 800 Z' fill='%231b2333' opacity='.78'/%3E%3Ccircle cx='904' cy='150' r='56' fill='%23d4a574' opacity='.32'/%3E%3C/svg%3E");
+  background-size: cover;
+}
+
+.title-screen,
+.screen-shell,
+.combat-screen {
+  min-height: 100vh;
+}
+
+.title-screen {
+  display: grid;
+  align-items: center;
+  padding: clamp(24px, 6vw, 80px);
+}
+
+.title-copy {
+  max-width: 720px;
+}
+
+.title-copy h1 {
+  font-size: clamp(68px, 15vw, 150px);
+  line-height: 0.95;
+  color: #f8d98c;
+  text-shadow: 0 0 34px rgba(255, 107, 53, 0.28);
+}
+
+.title-copy p:not(.eyebrow) {
+  max-width: 560px;
+  color: #eadfc9;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: #ffb45f;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+.button-row,
+.stat-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.screen-shell {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.screen-header,
+.top-bar,
+.combat-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.screen-header h2,
+.top-bar h2,
+.simple-screen h2,
+.game-over h2 {
+  font-size: clamp(36px, 6vw, 68px);
+  color: #f3d18a;
+}
+
+.character-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.character-card {
+  display: grid;
+  gap: 12px;
+  min-height: 320px;
+  border: 1px solid rgba(212, 165, 116, 0.34);
+  border-radius: 8px;
+  padding: 18px;
+  background: rgba(45, 27, 78, 0.72);
+}
+
+.character-card h3 {
+  font-size: 42px;
+  color: #f3d18a;
+}
+
+.character-card p,
+.character-card small {
+  line-height: 1.65;
+}
+
+.character-card.is-locked {
+  filter: grayscale(0.7);
+}
+
+.stat-strip span,
+.buff-row span {
+  border: 1px solid rgba(212, 165, 116, 0.28);
+  border-radius: 999px;
+  padding: 6px 10px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.map-shell {
+  overflow-x: auto;
+}
+
+.map-svg {
+  width: min(100%, 820px);
+  min-width: 560px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border: 1px solid rgba(212, 165, 116, 0.22);
+  border-radius: 8px;
+  background: rgba(11, 10, 20, 0.55);
+}
+
+.map-line {
+  fill: none;
+  stroke: rgba(212, 165, 116, 0.26);
+  stroke-width: 4;
+}
+
+.map-node {
+  cursor: default;
+}
+
+.map-node circle {
+  fill: #2d1b4e;
+  stroke: rgba(212, 165, 116, 0.72);
+  stroke-width: 3;
+}
+
+.map-node text {
+  fill: #e8d5b7;
+  font-size: 22px;
+  font-weight: 900;
+  pointer-events: none;
+}
+
+.map-node.available {
+  cursor: pointer;
+}
+
+.map-node.available circle {
+  fill: #68371f;
+  filter: drop-shadow(0 0 12px rgba(255, 180, 95, 0.75));
+}
+
+.map-node.visited circle {
+  fill: #3d3a46;
+  opacity: 0.65;
+}
+
+.combat-screen {
+  display: grid;
+  grid-template-rows: auto 1fr auto auto;
+  gap: 16px;
+  padding: 16px;
+  overflow: hidden;
+}
+
+.combat-top {
+  margin: 0;
+  border: 1px solid rgba(212, 165, 116, 0.28);
+  border-radius: 8px;
+  padding: 10px;
+  background: rgba(18, 10, 29, 0.72);
+}
+
+.enemy-row {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  gap: 18px;
+  min-height: 260px;
+}
+
+.enemy-display {
+  width: 190px;
+  min-height: 250px;
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  color: #e8d5b7;
+  background: rgba(45, 27, 78, 0.74);
+}
+
+.enemy-display.selected {
+  box-shadow: 0 0 0 2px #ffb45f, 0 0 28px rgba(255, 107, 53, 0.24);
+}
+
+.enemy-display.defeated {
+  opacity: 0.42;
+}
+
+.enemy-avatar,
+.player-orb {
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: radial-gradient(circle at 35% 25%, #f5c46e, #8b4513 62%, #261126);
+}
+
+.enemy-avatar {
+  width: 92px;
+  height: 92px;
+  font-size: 42px;
+  font-weight: 900;
+}
+
+.intent {
+  color: #ffb45f;
+  font-size: 13px;
+}
+
+.hp-bar {
+  width: 100%;
+  height: 10px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.hp-bar span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #c0392b, #ff6b35);
+}
+
+.player-stage {
+  display: grid;
+  place-items: center;
+  gap: 10px;
+}
+
+.player-orb {
+  width: 132px;
+  height: 132px;
+  border: 1px solid rgba(212, 165, 116, 0.7);
+}
+
+.player-orb span {
+  font-family: "Ma Shan Zheng", cursive;
+  font-size: 52px;
+}
+
+.hand-area,
+.reward-cards {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  gap: 10px;
+  min-height: 220px;
+}
+
+.battle-card {
+  position: relative;
+  width: 150px;
+  height: 206px;
+  display: grid;
+  grid-template-rows: auto auto auto 1fr;
+  gap: 6px;
+  padding: 14px;
+  color: #f7ead2;
+  text-align: left;
+  background:
+    linear-gradient(135deg, rgba(139, 69, 19, 0.35), rgba(212, 165, 116, 0.16)),
+    #25133a;
+}
+
+.battle-card.attack {
+  border-color: rgba(255, 107, 53, 0.86);
+}
+
+.battle-card.skill {
+  border-color: rgba(93, 173, 226, 0.86);
+}
+
+.battle-card.power {
+  border-color: rgba(241, 196, 15, 0.9);
+}
+
+.battle-card strong {
+  font-size: 18px;
+}
+
+.battle-card p {
+  margin: 0;
+  align-self: end;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.card-cost {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #ff6b35;
+  color: #fff5e7;
+  font-weight: 900;
+}
+
+.reward-screen,
+.simple-screen,
+.game-over {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  gap: 18px;
+  text-align: center;
+}
+
+@media (max-width: 720px) {
+  .screen-header,
+  .top-bar,
+  .combat-top {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .enemy-row {
+    align-items: stretch;
+    overflow-x: auto;
+    justify-content: start;
+  }
+
+  .hand-area,
+  .reward-cards {
+    justify-content: start;
+    overflow-x: auto;
+    min-height: 230px;
+  }
+
+  .battle-card {
+    flex: 0 0 142px;
+  }
+}
