@@ -8,6 +8,20 @@ interface Props {
 }
 
 export function CardComponent({ card, disabled, onPlay }: Props) {
+  const typeLabel = {
+    attack: '术法',
+    skill: '身法',
+    power: '心法',
+    curse: '诅咒',
+    status: '状态',
+  }[card.type];
+  const rarityLabel = {
+    starter: '入门',
+    common: '凡品',
+    uncommon: '珍品',
+    rare: '绝品',
+  }[card.rarity];
+
   return (
     <motion.button
       type="button"
@@ -18,8 +32,9 @@ export function CardComponent({ card, disabled, onPlay }: Props) {
       onClick={onPlay}
     >
       <span className="card-cost">{card.cost}</span>
+      <span className="card-rarity">{rarityLabel}</span>
       <strong>{card.name}</strong>
-      <small>{card.type}</small>
+      <small>{typeLabel}</small>
       <p>{card.description}</p>
     </motion.button>
   );

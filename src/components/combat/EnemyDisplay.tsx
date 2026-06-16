@@ -10,7 +10,7 @@ export function EnemyDisplay({ enemy, selected, onSelect }: Props) {
   const hpPercent = Math.max(0, (enemy.hp / enemy.maxHp) * 100);
   return (
     <button type="button" className={`enemy-display ${selected ? 'selected' : ''} ${enemy.defeated ? 'defeated' : ''}`} onClick={onSelect}>
-      <span className="intent">{enemy.intent.name}</span>
+      <span className={`intent ${enemy.intent.intent}`}>{enemy.intent.name}</span>
       <div className="enemy-avatar">{enemy.name.slice(0, 1)}</div>
       <strong>{enemy.name}</strong>
       <div className="hp-bar"><span style={{ width: `${hpPercent}%` }} /></div>

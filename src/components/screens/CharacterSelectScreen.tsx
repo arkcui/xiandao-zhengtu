@@ -6,15 +6,18 @@ export function CharacterSelectScreen() {
   return (
     <main className="screen-shell">
       <header className="screen-header">
-        <p className="eyebrow">择一道而行</p>
-        <h2>选择修士</h2>
+        <div>
+          <p className="eyebrow">择一道而行</p>
+          <h2>选择修士</h2>
+        </div>
+        <p className="screen-note">当前开放剑修云无涯，其余流派会作为后续内容扩展。</p>
       </header>
       <section className="character-grid">
         {characters.map((character) => {
           const locked = character.startingDeck.length === 0;
           return (
             <article className={`character-card ${locked ? 'is-locked' : ''}`} key={character.id}>
-              <span>{character.archetype}</span>
+              <span className="class-pill">{character.archetype}</span>
               <h3>{character.name}</h3>
               <p>{character.passive}</p>
               <small>{character.story}</small>
