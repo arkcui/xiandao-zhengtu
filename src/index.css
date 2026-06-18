@@ -630,12 +630,154 @@ h3,
 
 .reward-screen,
 .simple-screen,
-.game-over {
+.game-over,
+.node-screen {
   display: grid;
   place-items: center;
   align-content: center;
   gap: 18px;
   text-align: center;
+}
+
+.node-panel {
+  width: min(860px, 100%);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: clamp(20px, 4vw, 34px);
+  background:
+    radial-gradient(circle at 20% 0%, rgba(255, 180, 95, 0.14), transparent 36%),
+    linear-gradient(145deg, rgba(45, 27, 78, 0.9), rgba(15, 22, 34, 0.82));
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
+}
+
+.node-panel h2,
+.shop-screen h2 {
+  color: var(--gold);
+  font-size: clamp(36px, 7vw, 70px);
+}
+
+.event-copy {
+  max-width: 680px;
+  margin: 14px auto 18px;
+  color: #eadfc9;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.event-stats,
+.choice-list,
+.rest-actions,
+.upgrade-list {
+  display: grid;
+  gap: 12px;
+}
+
+.event-stats {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 420px;
+  margin: 0 auto 18px;
+}
+
+.event-stats span,
+.price-tag {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 7px 12px;
+  color: #f2dfbc;
+  background: rgba(255, 255, 255, 0.065);
+}
+
+.choice-button,
+.rest-actions > button,
+.deck-row,
+.potion-card {
+  display: grid;
+  gap: 5px;
+  justify-items: start;
+  width: 100%;
+  color: var(--text);
+  text-align: left;
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: none;
+}
+
+.choice-button strong,
+.rest-actions strong,
+.potion-card strong {
+  color: var(--gold);
+}
+
+.choice-button span,
+.rest-actions span,
+.deck-row small,
+.potion-card span {
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.rest-actions {
+  grid-template-columns: minmax(180px, 0.55fr) 1fr;
+  align-items: start;
+}
+
+.upgrade-list {
+  border: 1px solid rgba(212, 165, 116, 0.22);
+  border-radius: 8px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.deck-row {
+  min-height: 58px;
+}
+
+.shop-screen {
+  display: grid;
+  gap: 18px;
+}
+
+.shop-section {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px;
+  background: rgba(18, 10, 29, 0.62);
+}
+
+.shop-section h3 {
+  color: var(--gold);
+  font-size: 30px;
+}
+
+.shop-cards {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 8px 2px 14px;
+}
+
+.shop-item {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+}
+
+.shop-item.sold {
+  opacity: 0.48;
+}
+
+.potion-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+}
+
+.potion-card {
+  min-height: 124px;
+}
+
+.potion-card b {
+  color: var(--amber);
 }
 
 @media (max-width: 720px) {
@@ -662,6 +804,10 @@ h3,
 
   .battle-card {
     flex: 0 0 142px;
+  }
+
+  .rest-actions {
+    grid-template-columns: 1fr;
   }
 
   .combat-screen {

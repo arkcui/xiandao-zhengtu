@@ -6,6 +6,9 @@ import { CombatScreen } from '@/components/screens/CombatScreen';
 import { RewardScreen } from '@/components/screens/RewardScreen';
 import { GameOverScreen } from '@/components/screens/GameOverScreen';
 import { SimpleNodeScreen } from '@/components/screens/SimpleNodeScreen';
+import { EventScreen } from '@/components/screens/EventScreen';
+import { RestScreen } from '@/components/screens/RestScreen';
+import { ShopScreen } from '@/components/screens/ShopScreen';
 
 export function App() {
   const screen = useGameStore((state) => state.screen);
@@ -14,6 +17,9 @@ export function App() {
   if (screen === 'map') return <MapScreen />;
   if (screen === 'combat') return <CombatScreen />;
   if (screen === 'reward') return <RewardScreen />;
+  if (screen === 'event') return <EventScreen />;
+  if (screen === 'rest') return <RestScreen />;
+  if (screen === 'shop') return <ShopScreen />;
   if (screen === 'game_over') return <GameOverScreen />;
   return <SimpleNodeScreen screen={screen} />;
 }

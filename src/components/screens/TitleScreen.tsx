@@ -3,6 +3,8 @@ import { useGameStore } from '@/store/game-store';
 
 export function TitleScreen() {
   const setScreen = useGameStore((state) => state.setScreen);
+  const hasSave = useGameStore((state) => state.hasSave);
+  const loadGame = useGameStore((state) => state.loadGame);
   return (
     <main className="title-screen ink-bg">
       <div className="moon-disc" aria-hidden="true" />
@@ -17,7 +19,7 @@ export function TitleScreen() {
         </div>
         <div className="button-row">
           <button type="button" onClick={() => setScreen('character_select')}>开始新的修炼</button>
-          <button type="button" className="secondary" disabled>继续修炼</button>
+          <button type="button" className="secondary" disabled={!hasSave} onClick={loadGame}>继续修炼</button>
         </div>
       </motion.section>
     </main>
